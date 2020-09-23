@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreateCountriesTitle}"></h:outputText>
+            <h:outputText value="Создать страну"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -16,17 +16,17 @@
             <h:form>
                 <h:panelGrid columns="2">
                     
-                    <h:outputLabel value="#{bundle.CreateCountriesLabel_nameCountry}" for="nameCountry" />
+                    <h:outputLabel value="Название страны" for="nameCountry" />
                     <h:inputText id="nameCountry" value="#{countriesController.selected.nameCountry}" title="#{bundle.CreateCountriesTitle_nameCountry}" required="true" requiredMessage="#{bundle.CreateCountriesRequiredMessage_nameCountry}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{countriesController.create}" value="#{bundle.CreateCountriesSaveLink}" />
+                <h:commandLink action="#{countriesController.create}" value="Сохранить" />
                 <br />
                 <br />
-                <h:commandLink action="#{countriesController.prepareList}" value="#{bundle.CreateCountriesShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{countriesController.prepareList}" value="Список стран" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateCountriesIndexLink}"/>
+                <h:link outcome="/index" value="Главная"/>
             </h:form>
         </ui:define>
     </ui:composition>

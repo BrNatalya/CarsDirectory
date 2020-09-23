@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditColorsTitle}"></h:outputText>
+            <h:outputText value="Изменить цвет"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -15,20 +15,20 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditColorsLabel_idColor}" for="idColor" />
+                    <h:outputLabel value="Id цвета" for="idColor" />
                     <h:inputText id="idColor" value="#{colorsController.selected.idColor}" title="#{bundle.EditColorsTitle_idColor}" required="true" requiredMessage="#{bundle.EditColorsRequiredMessage_idColor}"/>
-                    <h:outputLabel value="#{bundle.EditColorsLabel_nameColor}" for="nameColor" />
+                    <h:outputLabel value="Название цвета" for="nameColor" />
                     <h:inputText id="nameColor" value="#{colorsController.selected.nameColor}" title="#{bundle.EditColorsTitle_nameColor}" required="true" requiredMessage="#{bundle.EditColorsRequiredMessage_nameColor}"/>
                 </h:panelGrid>
-                <h:commandLink action="#{colorsController.update}" value="#{bundle.EditColorsSaveLink}"/>
+                <h:commandLink action="#{colorsController.update}" value="Сохранить"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditColorsViewLink}"/>
+                <h:link outcome="View" value="Просмотр"/>
                 <br />
-                <h:commandLink action="#{colorsController.prepareList}" value="#{bundle.EditColorsShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{colorsController.prepareList}" value="Список цветов" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditColorsIndexLink}" />
+                <h:link outcome="/index" value="Главная" />
             </h:form>
         </ui:define>
     </ui:composition>

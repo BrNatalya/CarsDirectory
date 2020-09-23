@@ -6,7 +6,6 @@
 package Facades;
 
 import Entities.Cars;
-import Entities.Cars_;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -49,9 +48,16 @@ public abstract class AbstractFacade<T> {
         return getEntityManager().createQuery(cq).getResultList();
     }
     
-     
-    
-
+    public List<Cars> sortByNameDESC() {
+        //EntityManager em = getEntityManager();
+        CriteriaBuilder builder = getEntityManager().getCriteriaBuilder();
+        CriteriaQuery <Cars> q = builder.createQuery(Cars.class);
+        Root<Cars> cars = q.from(Cars.class);
+        q.select(cars);
+        q.orderBy(builder.desc(cars.get("idCars")));
+        return getEntityManager().createQuery(q).getResultList();
+    }   
+       
     public List<T> findRange(int[] range) {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
@@ -68,5 +74,5 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
+
 }

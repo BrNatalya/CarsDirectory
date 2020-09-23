@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewCarModelsTitle}"></h:outputText>
+            <h:outputText value="Страница модели"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -15,23 +15,23 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCarModelsLabel_idModel}"/>
+                    <h:outputText value="Id модели"/>
                     <h:outputText value="#{carModelsController.selected.idModel}" title="#{bundle.ViewCarModelsTitle_idModel}"/>
-                    <h:outputText value="#{bundle.ViewCarModelsLabel_nameModel}"/>
+                    <h:outputText value="Название модели"/>
                     <h:outputText value="#{carModelsController.selected.nameModel}" title="#{bundle.ViewCarModelsTitle_nameModel}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{carModelsController.destroyAndView}" value="#{bundle.ViewCarModelsDestroyLink}"/>
+                <h:commandLink action="#{carModelsController.destroyAndView}" value="Удалить"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewCarModelsEditLink}"/>
+                <h:link outcome="Edit" value="Изменить"/>
                 <br />
-                <h:commandLink action="#{carModelsController.prepareCreate}" value="#{bundle.ViewCarModelsCreateLink}" />
+                <h:commandLink action="#{carModelsController.prepareCreate}" value="Создать модель" />
                 <br />
-                <h:commandLink action="#{carModelsController.prepareList}" value="#{bundle.ViewCarModelsShowAllLink}"/>
+                <h:commandLink action="#{carModelsController.prepareList}" value="Список моделей"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewCarModelsIndexLink}"/>
+                <h:link outcome="/index" value="Главная"/>
 
             </h:form>
         </ui:define>

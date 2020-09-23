@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditCarsTitle}"></h:outputText>
+            <h:outputText value="Изменить автомобиль"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -17,19 +17,19 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditCarsLabel_idCars}" for="idCars" />
                     <h:inputText id="idCars" value="#{carsController.selected.idCars}" title="#{bundle.EditCarsTitle_idCars}" required="true" requiredMessage="#{bundle.EditCarsRequiredMessage_idCars}"/>
-                    <h:outputLabel value="#{bundle.EditCarsLabel_registrNumber}" for="registrNumber" />
+                    <h:outputLabel value="Регистрационный номер" for="registrNumber" />
                     <h:inputText id="registrNumber" value="#{carsController.selected.registrNumber}" title="#{bundle.EditCarsTitle_registrNumber}" />
-                    <h:outputLabel value="#{bundle.EditCarsLabel_yearManufact}" for="yearManufact" />
+                    <h:outputLabel value="Год производства" for="yearManufact" />
                     <h:inputText id="yearManufact" value="#{carsController.selected.yearManufact}" title="#{bundle.EditCarsTitle_yearManufact}" />
-                    <h:outputLabel value="#{bundle.EditCarsLabel_modelId}" for="modelId" />
+                    <h:outputLabel value="Модель" for="modelId" />
                     <h:selectOneMenu id="modelId" value="#{carsController.selected.modelId}" title="#{bundle.EditCarsTitle_modelId}" >
                         <f:selectItems value="#{carModelsController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditCarsLabel_colorId}" for="colorId" />
+                    <h:outputLabel value="Цвет" for="colorId" />
                     <h:selectOneMenu id="colorId" value="#{carsController.selected.colorId}" title="#{bundle.EditCarsTitle_colorId}" >
                         <f:selectItems value="#{colorsController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditCarsLabel_countryId}" for="countryId" />
+                    <h:outputLabel value="Страна производитель" for="countryId" />
                     <h:selectOneMenu id="countryId" value="#{carsController.selected.countryId}" title="#{bundle.EditCarsTitle_countryId}" >
                         <f:selectItems value="#{countriesController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
@@ -37,12 +37,12 @@
                 <h:commandLink action="#{carsController.update}" value="#{bundle.EditCarsSaveLink}"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditCarsViewLink}"/>
+                <h:link outcome="Просмотр" value="View"/>
                 <br />
                 <h:commandLink action="#{carsController.prepareList}" value="#{bundle.EditCarsShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditCarsIndexLink}" />
+                <h:link outcome="/index" value="Главная" />
             </h:form>
         </ui:define>
     </ui:composition>

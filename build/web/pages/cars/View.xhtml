@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewCarsTitle}"></h:outputText>
+            <h:outputText value="Страница автомобиля"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -15,31 +15,31 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCarsLabel_idCars}"/>
+                    <h:outputText value="Id автомобиля"/>
                     <h:outputText value="#{carsController.selected.idCars}" title="#{bundle.ViewCarsTitle_idCars}"/>
-                    <h:outputText value="#{bundle.ViewCarsLabel_registrNumber}"/>
+                    <h:outputText value="Регистрационный номер"/>
                     <h:outputText value="#{carsController.selected.registrNumber}" title="#{bundle.ViewCarsTitle_registrNumber}"/>
-                    <h:outputText value="#{bundle.ViewCarsLabel_yearManufact}"/>
+                    <h:outputText value="Год производства"/>
                     <h:outputText value="#{carsController.selected.yearManufact}" title="#{bundle.ViewCarsTitle_yearManufact}"/>
-                    <h:outputText value="#{bundle.ViewCarsLabel_modelId}"/>
+                    <h:outputText value="Модель"/>
                     <h:outputText value="#{carsController.selected.modelId}" title="#{bundle.ViewCarsTitle_modelId}"/>
-                    <h:outputText value="#{bundle.ViewCarsLabel_colorId}"/>
+                    <h:outputText value="Цвет"/>
                     <h:outputText value="#{carsController.selected.colorId}" title="#{bundle.ViewCarsTitle_colorId}"/>
-                    <h:outputText value="#{bundle.ViewCarsLabel_countryId}"/>
+                    <h:outputText value="Страна производитель"/>
                     <h:outputText value="#{carsController.selected.countryId}" title="#{bundle.ViewCarsTitle_countryId}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{carsController.destroyAndView}" value="#{bundle.ViewCarsDestroyLink}"/>
+                <h:commandLink action="#{carsController.destroyAndView}" value="Удалить"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewCarsEditLink}"/>
+                <h:link outcome="Edit" value="Изменить"/>
                 <br />
-                <h:commandLink action="#{carsController.prepareCreate}" value="#{bundle.ViewCarsCreateLink}" />
+                <h:commandLink action="#{carsController.prepareCreate}" value="Создать новый" />
                 <br />
-                <h:commandLink action="#{carsController.prepareList}" value="#{bundle.ViewCarsShowAllLink}"/>
+                <h:commandLink action="#{carsController.prepareList}" value="Смотреть весь список автомобилей"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewCarsIndexLink}"/>
+                <h:link outcome="/index" value="Главная"/>
 
             </h:form>
         </ui:define>

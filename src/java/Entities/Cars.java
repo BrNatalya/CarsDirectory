@@ -27,18 +27,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = "Cars.sortByIdDESC", query = "SELECT c.idCars FROM Cars c ORDER BY c.idCars DESC"),
     @NamedQuery(name = "Cars.findAll", query = "SELECT c FROM Cars c"),
     @NamedQuery(name = "Cars.findByIdCars", query = "SELECT c FROM Cars c WHERE c.idCars = :idCars"),
     @NamedQuery(name = "Cars.findByRegistrNumber", query = "SELECT c FROM Cars c WHERE c.registrNumber = :registrNumber"),
     @NamedQuery(name = "Cars.findByYearManufact", query = "SELECT c FROM Cars c WHERE c.yearManufact = :yearManufact")})
 public class Cars implements Serializable {
-
+    
+    
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_cars")
     private Integer idCars;
+    
     
        
     @Column(name = "registr_number")
@@ -59,14 +63,16 @@ public class Cars implements Serializable {
     @JoinColumn(name = "country_id", referencedColumnName = "id_country")
     @ManyToOne
     private Countries countryId;
-
+    
+          
+       
     public Cars() {
     }
 
     public Cars(Integer idCars) {
         this.idCars = idCars;
     }
-
+       
     public Integer getIdCars() {
     return idCars;
     }

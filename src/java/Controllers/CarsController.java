@@ -1,11 +1,14 @@
 package Controllers;
 
 import Entities.Cars;
+import Entities.Cars_;
 import Facades.CarsFacade;
 import Entities.util.JsfUtil;
 import Entities.util.PaginationHelper;
+import com.sun.faces.renderkit.SelectItemsIterator;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -17,17 +20,29 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.persistence.EntityManager;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 
 @Named("carsController")
 @SessionScoped
 public class CarsController implements Serializable {
-
+       
+    
     private Cars current;
     private DataModel items = null;
     @EJB
     private Facades.CarsFacade ejbFacade;
+    private Cars car;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+
+    public Cars getCar() {
+        return this.car;
+    }
 
     public CarsController() {
     }
@@ -61,8 +76,7 @@ public class CarsController implements Serializable {
         }
         return pagination;
     }
-    
-    
+
     public String prepareList() {
         recreateModel();
         return "List";
@@ -78,14 +92,6 @@ public class CarsController implements Serializable {
         recreateModel();
         return "Create";
     }
-    
-     public String prepareCreateSortStringId() {
-        current = new Cars();
-        selectedItemIndex = -1;
-        return "CreateSortIdASC";
-    }
-    
-    
 
     public String create() {
         try {
@@ -195,11 +201,24 @@ public class CarsController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
-    
-    
+
+     
+    public  List<Cars> getSortByIdDESC () {
+       return ejbFacade.sortByNameDESC();
+   }
+
+    //Метод запроса количества записей автомобилей из таблицы Cars
+    public int getNumberOfCars() {
+        return ejbFacade.findAll().size();
+
+    }
 
     public Cars getCars(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+
+    private EntityManager getEntityManager() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @FacesConverter(forClass = Cars.class)

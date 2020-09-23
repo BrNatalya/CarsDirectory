@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreateCarModelsTitle}"></h:outputText>
+            <h:outputText value="Создать модель"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -16,19 +16,19 @@
             <h:form>
                 <h:panelGrid columns="2">
                     
-                    <h:outputLabel value="#{bundle.CreateCarModelsLabel_nameModel}" for="nameModel" />
+                    <h:outputLabel value="Название модели" for="nameModel" />
                     <h:inputText id="nameModel" value="#{carModelsController.selected.nameModel}" title="#{bundle.CreateCarModelsTitle_nameModel}" required="true" requiredMessage="#{bundle.CreateCarModelsRequiredMessage_nameModel}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{carModelsController.create}" value="#{bundle.CreateCarModelsSaveLink}" />
+                <h:commandLink action="#{carModelsController.create}" value="Сохранить" />
                 <br />
                 <br />
-                <h:commandLink action="#{carModelsController.prepareList}" value="#{bundle.CreateCarModelsShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{carModelsController.prepareList}" value="Посмотреть список моделей" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateCarModelsIndexLink}"/>
+                <h:link outcome="/index" value="Главная"/>
             </h:form>
-        </ui:define>
+        </ui:define>    
     </ui:composition>
 
 </html>

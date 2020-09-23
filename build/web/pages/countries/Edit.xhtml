@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditCountriesTitle}"></h:outputText>
+            <h:outputText value="Изменить запись"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -15,20 +15,20 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditCountriesLabel_idCountry}" for="idCountry" />
+                    <h:outputLabel value="Id страны" for="idCountry" />
                     <h:inputText id="idCountry" value="#{countriesController.selected.idCountry}" title="#{bundle.EditCountriesTitle_idCountry}" required="true" requiredMessage="#{bundle.EditCountriesRequiredMessage_idCountry}"/>
-                    <h:outputLabel value="#{bundle.EditCountriesLabel_nameCountry}" for="nameCountry" />
+                    <h:outputLabel value="Название страны" for="nameCountry" />
                     <h:inputText id="nameCountry" value="#{countriesController.selected.nameCountry}" title="#{bundle.EditCountriesTitle_nameCountry}" required="true" requiredMessage="#{bundle.EditCountriesRequiredMessage_nameCountry}"/>
                 </h:panelGrid>
-                <h:commandLink action="#{countriesController.update}" value="#{bundle.EditCountriesSaveLink}"/>
+                <h:commandLink action="#{countriesController.update}" value="Сохранить"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditCountriesViewLink}"/>
+                <h:link outcome="View" value="Изменить"/>
                 <br />
-                <h:commandLink action="#{countriesController.prepareList}" value="#{bundle.EditCountriesShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{countriesController.prepareList}" value="Список стран" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditCountriesIndexLink}" />
+                <h:link outcome="/index" value="Главная" />
             </h:form>
         </ui:define>
     </ui:composition>

@@ -9,17 +9,20 @@
     <h:body>
         <p style="font-size: 32px; font-style: normal;"> Электронный справочник автомобилей </p>
         <br />
-        <h:link outcome="/pages/cars/List" value="Показать список автомобилей"/>
+        <tr>
+            <td><h:outputLabel value="Автомобили. Всего записей: "/>
+                <h:outputText value="#{carsController.numberOfCars}"/>
+            </td>
+        </tr>
         <br />
-        <h:link outcome="/pages/carModels/List" value="Показать модели автомобилей"/>
         <br />
-        <h:link outcome="/pages/colors/List" value="Показать цвета автомобилей"/>
+        <h:link outcome="/pages/cars/List" value="Список всех автомобилей"/>
         <br />
-        <h:link outcome="/pages/countries/List" value="Показать список стран-производителей"/>
+        <h:link outcome="/pages/carModels/List" value="Смотреть модели автомобилей"/>
+        <br />
+        <h:link outcome="/pages/colors/List" value="Смотреть цвета автомобилей"/>
+        <br />
+        <h:link outcome="/pages/countries/List" value="Смотреть список стран-производителей"/>
     </h:body>
-
-
-
-
 </html>
 
