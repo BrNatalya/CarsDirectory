@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCarModelsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCarModelsEmpty}" rendered="#{carModelsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{carModelsController.items.rowCount > 0}">
+                    <h:outputText value="#{carModelsController.pagination.pageFirstItem + 1}..#{carModelsController.pagination.pageLastItem + 1}/#{carModelsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{carModelsController.previous}" value="#{bundle.Previous} #{carModelsController.pagination.pageSize}" rendered="#{carModelsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{carModelsController.next}" value="#{bundle.Next} #{carModelsController.pagination.pageSize}" rendered="#{carModelsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{carModelsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCarModelsTitle_idModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idModel}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCarModelsTitle_nameModel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nameModel}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{carModelsController.prepareView}" value="#{bundle.ListCarModelsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{carModelsController.prepareEdit}" value="#{bundle.ListCarModelsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{carModelsController.destroy}" value="#{bundle.ListCarModelsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{carModelsController.prepareCreate}" value="#{bundle.ListCarModelsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCarModelsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

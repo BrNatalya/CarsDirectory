@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditColorsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditColorsLabel_idColor}" for="idColor" />
+                    <h:inputText id="idColor" value="#{colorsController.selected.idColor}" title="#{bundle.EditColorsTitle_idColor}" required="true" requiredMessage="#{bundle.EditColorsRequiredMessage_idColor}"/>
+                    <h:outputLabel value="#{bundle.EditColorsLabel_nameColor}" for="nameColor" />
+                    <h:inputText id="nameColor" value="#{colorsController.selected.nameColor}" title="#{bundle.EditColorsTitle_nameColor}" required="true" requiredMessage="#{bundle.EditColorsRequiredMessage_nameColor}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{colorsController.update}" value="#{bundle.EditColorsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditColorsViewLink}"/>
+                <br />
+                <h:commandLink action="#{colorsController.prepareList}" value="#{bundle.EditColorsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditColorsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
